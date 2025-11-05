@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Agente — Simulador Go / No Go</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="title-row">
+      <span class="avatar" id="agentAvatar" title="Director"></span>
+      <strong id="agentTitle">Agente</strong>
+    </div>
+    <span class="badge" id="stepBadge">PASO_0</span>
+  </div>
+</header>
+
+<main class="container">
+  <div class="row">
+    <div class="col">
+      <div class="panel">
+        <div id="chat" aria-live="polite"></div>
+        <div class="row" style="margin-top:10px">
+          <input id="msg" placeholder="Escribe tu respuesta o pegá JSON…" onkeydown="if(event.key==='Enter')send()">
+          <button id="sendBtn" onclick="send()">Enviar</button>
+          <button id="pdfBtn" onclick="descargarPDF()">Descargar PDF</button>
+        </div>
+        <div class="small">Comandos: <code>validar</code>, <code>ayuda</code>, <code>reset</code>. Podés pegar JSON. El director puede dar pistas y bloquear el avance.</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="panel">
+        <h4>Panel del Equipo</h4>
+        <div class="kpi">
+          <input id="equipo" placeholder="Nombre del equipo">
+          <input id="integrantes" placeholder="Integrantes (coma separada)">
+          <input id="som" placeholder="SOM (%)">
+          <input id="modelo" placeholder="Modelo (stock/dropship/marketplace)">
+          <input id="aov" placeholder="AOV / Ticket medio (USD)">
+          <input id="margen" placeholder="Margen bruto (%)">
+          <input id="cac" placeholder="CAC (USD)">
+          <input id="ltv" placeholder="LTV (USD)">
+          <input id="burn" placeholder="Cash burn mensual (USD)">
+          <input id="runway" placeholder="Runway (meses)">
+          <input id="breakeven" placeholder="Break-even (meses)">
+        </div>
+        <textarea id="json" rows="10" spellcheck="false" placeholder='Pegá/edita aquí el JSON del proyecto…'></textarea>
+        <div class="row" style="margin-top:10px">
+          <button onclick="guardar()">Guardar</button>
+          <button onclick="cargar()">Cargar</button>
+          <button onclick="exportar()">Exportar JSON</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="./agent.js"></script>
+</body>
+</html>

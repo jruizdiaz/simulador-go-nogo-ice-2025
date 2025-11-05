@@ -1,0 +1,65 @@
+{
+  "scenario": "OnCity",
+  "title": "Director General — OnCity",
+  "role": "el Director General",
+  "thresholds": {
+    "margen_min": 30,
+    "ltv_cac_ratio": 3.0,
+    "runway_min": 4,
+    "breakeven_max": 6,
+    "som_min": 2,
+    "min_score": 3
+  },
+  "help": {
+    "default": "Usá **validar** para avanzar. Podés completar el panel derecho o pegar JSON.",
+    "PASO_0": "Escribí **validar** para comenzar.",
+    "PASO_1": "Definí **SOM (%)** y **modelo** (stock/dropship/marketplace).",
+    "PASO_2": "Indicá **AOV**, **margen %**, **CAC** y **LTV**.",
+    "PASO_3": "Indicá **cash burn mensual** y **runway (meses)**.",
+    "PASO_4": "Estimá **break-even (meses)**.",
+    "PASO_5": "Escribí **validar** para calcular la decisión."
+  },
+  "prompts": {
+    "PASO_1": "PASO 1 — Mercado y modelo: completá SOM (%) y modelo de negocio.",
+    "PASO_2": "PASO 2 — Métricas unitarias: AOV, margen %, CAC y LTV.",
+    "PASO_3": "PASO 3 — Financiero: cash burn mensual y runway (meses).",
+    "PASO_4": "PASO 4 — Payback: break-even en meses."
+  },
+  "rules": {
+    "PASO_1": [
+      {
+        "trigger": "pista|ayuda",
+        "reply": "SOM se deriva de TAM→SAM→SOM. En un nicho local, 1–5% suele ser razonable."
+      }
+    ],
+    "PASO_2": [
+      {
+        "trigger": "margen|cac|ltv|aov",
+        "reply": "Guía: **LTV ≥ 3×CAC** y margen ≥ 30%."
+      }
+    ],
+    "PASO_3": [
+      {
+        "trigger": "burn|runway",
+        "reply": "Si el burn es alto, buscá runway ≥ 4 meses o reducí fijos."
+      }
+    ],
+    "PASO_4": [
+      {
+        "trigger": "break|payback",
+        "reply": "Objetivo: break-even ≤ 6 meses para un MVP."
+      }
+    ],
+    "PASO_5": []
+  },
+  "go_advice": "Escalar con sprint de validación medible; monitorear CAC semanal.",
+  "nogo_advice": "Revisar PV/canales: bajar CAC, subir margen o ajustar presupuesto.",
+  "theme": {
+    "brand": "#1e88e5",
+    "link": "#bcd7ff"
+  },
+  "avatar": {
+    "url": "./assets/avatars.png",
+    "pos": "0% 50%"
+  }
+}

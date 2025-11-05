@@ -1,0 +1,65 @@
+{
+  "scenario": "Coto Digital",
+  "title": "Director de Operaciones & Finanzas — Coto Digital",
+  "role": "el Director de Operaciones y Finanzas",
+  "thresholds": {
+    "margen_min": 30,
+    "ltv_cac_ratio": 3.0,
+    "runway_min": 4,
+    "breakeven_max": 6,
+    "som_min": 2,
+    "min_score": 3
+  },
+  "help": {
+    "default": "Usá **validar** para avanzar. Podés completar el panel derecho o pegar JSON.",
+    "PASO_0": "Escribí **validar** para comenzar.",
+    "PASO_1": "Definí **SOM (%)** y **modelo** (stock/dropship/marketplace).",
+    "PASO_2": "Indicá **AOV**, **margen %**, **CAC** y **LTV**.",
+    "PASO_3": "Indicá **cash burn mensual** y **runway (meses)**.",
+    "PASO_4": "Estimá **break-even (meses)**.",
+    "PASO_5": "Escribí **validar** para calcular la decisión."
+  },
+  "prompts": {
+    "PASO_1": "PASO 1 — Mercado y modelo: completá SOM (%) y modelo de negocio.",
+    "PASO_2": "PASO 2 — Métricas unitarias: AOV, margen %, CAC y LTV.",
+    "PASO_3": "PASO 3 — Financiero: cash burn mensual y runway (meses).",
+    "PASO_4": "PASO 4 — Payback: break-even en meses."
+  },
+  "rules": {
+    "PASO_1": [
+      {
+        "trigger": "modelo|stock|dropship|market",
+        "reply": "Detallá modelo logístico y costos variables (picking, packing, flete)."
+      }
+    ],
+    "PASO_2": [
+      {
+        "trigger": "margen|cac|ltv|aov",
+        "reply": "Asegurá margen tras costos variables; **LTV ≥ 3×CAC**."
+      }
+    ],
+    "PASO_3": [
+      {
+        "trigger": "burn|runway",
+        "reply": "Si el burn es alto, renegociá 3PL o segmentá entregas para preservar runway ≥ 4."
+      }
+    ],
+    "PASO_4": [
+      {
+        "trigger": "break|payback",
+        "reply": "Mejorar SLA impacta CVR, pero cuidá costos."
+      }
+    ],
+    "PASO_5": []
+  },
+  "go_advice": "Piloto con contrato 3PL por performance.",
+  "nogo_advice": "Reconfigurar costos logísticos y pricing antes de escalar.",
+  "theme": {
+    "brand": "#c62828",
+    "link": "#ffb3b3"
+  },
+  "avatar": {
+    "url": "./assets/avatars.png",
+    "pos": "33% 50%"
+  }
+}

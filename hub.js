@@ -1,0 +1,1 @@
+// Hub sin lógica adicional por ahora.
